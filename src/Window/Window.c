@@ -65,6 +65,8 @@ HWND InitializeProgressBar(HINSTANCE h_instance, HWND hwnd_parent, int max_value
     SetWindowLong(hwnd, GWL_EXSTYLE, style);
     //
     SendMessage(hwnd, PBM_SETRANGE, 0, MAKELPARAM(0, max_value));
+    SendMessage(hwnd, PBM_SETBKCOLOR, 0, RGB(218, 218, 241));
+    SendMessage(hwnd, PBM_SETBARCOLOR, 0, (RGB(142, 140, 216)));
     return hwnd;
 }
 
