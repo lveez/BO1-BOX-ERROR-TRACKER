@@ -8,5 +8,8 @@ LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 HWND InitializeMainWindow(HINSTANCE);
 HWND InitializeProgressBar(HINSTANCE, HWND, int);
 HWND InitializeStaticControl(HINSTANCE, HWND);
+HWND InitializeStatusControl(HINSTANCE, HWND);
+void SetStatusConnecting(HWND);
+void SetStatusConnected(HWND);
 
 #endif
