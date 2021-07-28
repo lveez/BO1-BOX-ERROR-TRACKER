@@ -22,3 +22,17 @@ DWORD GetProcessIdByName(char* name)
     return 0;
 }
 
+
+
+DWORD GetVariableCountAddress(HANDLE p_handle)
+{
+    int temp;
+    if (!ReadProcessMemory(p_handle, (LPCVOID)0x32c8580, &temp, sizeof(int), NULL))
+    {
+        // GetLastError
+        // process has probs been closed
+        return 0;
+    }
+    return temp + 0x14;
+}
+

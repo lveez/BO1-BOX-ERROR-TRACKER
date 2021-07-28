@@ -7,5 +7,6 @@
 #include <TlHelp32.h>
 
 DWORD GetProcessIdByName(char* name);
+DWORD GetVariableCountAddress(HANDLE p_handle);
 
 #endif
