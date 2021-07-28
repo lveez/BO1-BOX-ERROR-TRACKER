@@ -60,7 +60,7 @@ void MemoryThread(LPVOID p_data)
             error = GetLastError();
         }
 
-        if (error == ERROR_PARTIAL_COPY || error == ERROR_INVALID_HANDLE || error = NO_ERROR)
+        if (error == ERROR_PARTIAL_COPY || error == ERROR_INVALID_HANDLE || error == NO_ERROR)
         {
             process_id = GetProcessIdByName("BlackOps.exe");
             if (process_id == 0) continue;
