@@ -60,7 +60,7 @@ void MemoryThread(LPVOID p_data)
             error = GetLastError();
         }
 
-        if (error == ERROR_PARTIAL_COPY || error == ERROR_INVALID_HANDLE || error == NO_ERROR)
+        if (error == ERROR_PARTIAL_COPY || error == ERROR_INVALID_HANDLE || error = NO_ERROR)
         {
             process_id = GetProcessIdByName("BlackOps.exe");
             if (process_id == 0) continue;
@@ -77,10 +77,13 @@ void MemoryThread(LPVOID p_data)
         else
         {
             itoa(error, error_buffer, 10);
-            MessageBox(NULL, error_buffer, "Unhandled Error", MB_OK);
+            char error_string[256];
+            strcat(error_string, "ReadProcessMemory failed with unhandled error: ");
+            strcat(error_string, error_buffer);
+            strcat(error_string, ". Process will now close.");
+            MessageBox(NULL, error_string, "Unhandled Error", MB_OK);
+            SendMessage(data.hwnd_main, WM_CLOSE, 0, 0);
         }
-        /*itoa(GetLastError(), error_buffer, 10);
-        MessageBox(0, error_buffer, "Error from ReadProcessMemory.", MB_OK);*/
         Sleep(1000);
     }
 }
